@@ -1,0 +1,305 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:backgroundTint="#FB8C00"
+    android:scrollbarAlwaysDrawVerticalTrack="true"
+    android:scrollbarSize="30sp"
+    android:scrollbarThumbVertical="@null"
+    tools:context=".MainActivity">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:backgroundTint="#FB8C00"
+        android:scrollbarSize="30sp">
+
+        <TextView
+            android:id="@+id/textView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="80dp"
+            android:fontFamily="@font/aclonica"
+            android:lines="1"
+            android:singleLine="true"
+            android:textAlignment="viewEnd"
+            android:textColor="@color/purple_500"
+            android:textSize="60sp" />
+
+        <TextView
+            android:id="@+id/textView2"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:layout_below="@+id/textView"
+            android:fontFamily="@font/aclonica"
+            android:inputType="numberDecimal"
+            android:maxLines="1"
+            android:singleLine="true"
+            android:textAlignment="viewEnd"
+            android:textSize="25sp" />
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_below="@id/textView2">
+
+            <TableLayout
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_alignParentBottom="true"
+                android:layout_centerInParent="true"
+                android:layout_centerHorizontal="true">
+
+                <TableRow>
+
+                    <Button
+                        android:id="@+id/btnAC"
+                        android:layout_width="80dp"
+                        android:layout_height="80dp"
+                        android:layout_marginRight="3dp"
+                        android:backgroundTint="#FB8C00"
+                        android:fontFamily="@font/aclonica"
+                        android:text="AC"
+                        android:textColor="@color/black"
+                        android:textSize="18sp" />
+
+                    <Button
+                        android:id="@+id/btnClear"
+                        android:layout_width="80dp"
+                        android:layout_height="80dp"
+                        android:layout_marginRight="3dp"
+                        android:backgroundTint="#FB8C00"
+                        android:fontFamily="@font/aclonica"
+                        android:textColor="@color/white"
+                        android:textSize="18sp" />
+
+                    <ImageButton
+                        android:id="@+id/btnMod"
+                        android:layout_width="80dp"
+                        android:layout_height="80dp"
+                        android:layout_marginRight="3dp"
+                        android:backgroundTint="#FB8C00"
+                        android:fontFamily="@font/aclonica"
+                        android:src="@drawable/baseline_mic"
+                        android:textColor="@color/white"
+                        android:textSize="18sp" />
+
+                    <Button
+                        android:id="@+id/btnDiv"
+                        android:layout_width="80dp"
+                        android:layout_height="80dp"
+                        android:layout_marginRight="3dp"
+                        android:backgroundTint="#FB8C00"
+                        android:fontFamily="@font/aclonica"
+                        android:text="/"
+                        android:textColor="@color/white"
+                        android:textSize="18sp" />
+
+                </TableRow>
+
+                <TableRow
+                    android:layout_marginRight="3dp"
+                    android:backgroundTint="#FFFFFF">
+
+                    <Button
+                        android:id="@+id/btn9"
+                        android:layout_width="wrap_content"
+                        android:layout_height="80dp"
+                        android:layout_marginRight="3dp"
+                        android:backgroundTint="#FFFFFF"
+                        android:fontFamily="@font/aclonica"
+                        android:text="9"
+                        android:textColor="#FB8C00"
+                        android:textSize="18sp" />
+
+                    <Button
+                        android:id="@+id/btn8"
+                        android:layout_width="80dp"
+                        android:layout_height="80dp"
+                        android:layout_marginRight="3dp"
+                        android:backgroundTint="#FFFFFF"
+                        android:fontFamily="@font/aclonica"
+                        android:text="8"
+                        android:textColor="#FB8C00"
+                        android:textSize="18sp" />
+
+                    <Button
+                        android:id="@+id/btn7"
+                        android:layout_width="80dp"
+                        android:layout_height="80dp"
+                        android:layout_marginRight="3dp"
+                        android:backgroundTint="#FFFFFF"
+                        android:fontFamily="@font/aclonica"
+                        android:text="7"
+                        android:textColor="#FB8C00"
+                        android:textSize="18sp" />
+
+                    <Button
+                        android:id="@+id/btnMul"
+                        android:layout_width="80dp"
+                        android:layout_height="80dp"
+                        android:layout_marginRight="3dp"
+                        android:backgroundTint="#FB8C00"
+                        android:fontFamily="@font/aclonica"
+                        android:text="*"
+                        android:textColor="@color/white"
+                        android:textSize="18sp" />
+
+                </TableRow>
+
+                <TableRow
+                    android:layout_marginRight="3dp"
+                    android:backgroundTint="#FFFFFF">
+
+                    <Button
+                        android:id="@+id/btn6"
+                        android:layout_width="80dp"
+                        android:layout_height="80dp"
+                        android:layout_marginRight="3dp"
+                        android:backgroundTint="#FFFFFF"
+                        android:fontFamily="@font/aclonica"
+                        android:text="6"
+                        android:textColor="#FB8C00"
+                        android:textSize="18sp" />
+
+                    <Button
+                        android:id="@+id/btn5"
+                        android:layout_width="80dp"
+                        android:layout_height="80dp"
+                        android:layout_marginRight="3dp"
+                        android:backgroundTint="#FFFFFF"
+                        android:fontFamily="@font/aclonica"
+                        android:text="5"
+                        android:textColor="#FB8C00"
+                        android:textSize="18sp" />
+
+                    <Button
+                        android:id="@+id/btn4"
+                        android:layout_width="80dp"
+                        android:layout_height="80dp"
+                        android:layout_marginRight="3dp"
+                        android:backgroundTint="#FFFFFF"
+                        android:fontFamily="@font/aclonica"
+                        android:text="4"
+                        android:textColor="#FB8C00"
+                        android:textSize="18sp" />
+
+                    <Button
+                        android:id="@+id/btnMin"
+                        android:layout_width="80dp"
+                        android:layout_height="80dp"
+                        android:layout_marginRight="3dp"
+                        android:backgroundTint="#FB8C00"
+                        android:fontFamily="@font/aclonica"
+                        android:text="-"
+                        android:textColor="@color/white"
+                        android:textSize="18sp" />
+
+                </TableRow>
+
+                <TableRow
+                    android:layout_marginRight="3dp"
+                    android:backgroundTint="#FFFFFF">
+
+                    <Button
+                        android:id="@+id/btn3"
+                        android:layout_width="80dp"
+                        android:layout_height="80dp"
+                        android:layout_marginRight="3dp"
+                        android:backgroundTint="#FFFFFF"
+                        android:fontFamily="@font/aclonica"
+                        android:text="3"
+                        android:textColor="#FB8C00"
+                        android:textSize="18sp" />
+
+                    <Button
+                        android:id="@+id/btn2"
+                        android:layout_width="80dp"
+                        android:layout_height="80dp"
+                        android:layout_marginRight="3dp"
+                        android:backgroundTint="#FFFFFF"
+                        android:fontFamily="@font/aclonica"
+                        android:text="2"
+                        android:textColor="#FB8C00"
+                        android:textSize="18sp" />
+
+                    <Button
+                        android:id="@+id/btn1"
+                        android:layout_width="80dp"
+                        android:layout_height="80dp"
+                        android:layout_marginRight="3dp"
+                        android:backgroundTint="#FFFFFF"
+                        android:fontFamily="@font/aclonica"
+                        android:text="1"
+                        android:textColor="#FB8C00"
+                        android:textSize="18sp" />
+
+                    <Button
+                        android:id="@+id/btnplus"
+                        android:layout_width="80dp"
+                        android:layout_height="80dp"
+                        android:layout_marginRight="3dp"
+                        android:backgroundTint="#FB8C00"
+                        android:fontFamily="@font/aclonica"
+                        android:text="+"
+                        android:textColor="@color/white"
+                        android:textSize="18sp" />
+
+                </TableRow>
+
+                <TableRow
+                    android:layout_marginRight="3dp"
+                    android:backgroundTint="#FFFFFF">
+
+                    <Button
+                        android:id="@+id/btndot"
+                        android:layout_width="80dp"
+                        android:layout_height="80dp"
+                        android:layout_marginRight="3dp"
+                        android:backgroundTint="#FB8C00"
+                        android:fontFamily="@font/aclonica"
+                        android:text="."
+                        android:textColor="@color/white"
+                        android:textSize="18sp" />
+
+                    <Button
+                        android:id="@+id/btn0"
+                        android:layout_width="80dp"
+                        android:layout_height="80dp"
+                        android:layout_marginRight="3dp"
+                        android:backgroundTint="#FFFFFF"
+                        android:fontFamily="@font/aclonica"
+                        android:text="0"
+                        android:textColor="#FB8C00"
+                        android:textSize="18sp" />
+
+                    <Button
+                        android:id="@+id/btnAS"
+                        android:layout_width="80dp"
+                        android:layout_height="80dp"
+                        android:layout_marginRight="3dp"
+                        android:backgroundTint="#FB8C00"
+                        android:baselineAligned="false"
+                        android:fontFamily="@font/aclonica"
+                        android:textColor="@color/white"
+                        android:textSize="18sp" />
+
+                    <Button
+                        android:id="@+id/btnEqual"
+                        android:layout_width="80dp"
+                        android:layout_height="80dp"
+                        android:layout_marginRight="3dp"
+                        android:backgroundTint="#FB8C00"
+                        android:fontFamily="@font/aclonica"
+                        android:text="="
+                        android:textColor="@color/white"
+                        android:textSize="18sp" />
+
+                </TableRow>
+
+            </TableLayout>
+        </RelativeLayout>
+    </RelativeLayout>
+</ScrollView>
