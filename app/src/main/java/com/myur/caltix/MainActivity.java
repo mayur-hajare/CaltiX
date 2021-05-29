@@ -1,15 +1,23 @@
 package com.myur.caltix;
 
+import android.content.ActivityNotFoundException;
+import android.content.Intent;
 import android.os.Bundle;
+import android.speech.RecognizerIntent;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.TextView;
+import android.widget.Toast;
 
+import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
 import net.objecthunter.exp4j.Expression;
 import net.objecthunter.exp4j.ExpressionBuilder;
+
+import java.util.ArrayList;
+import java.util.Locale;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -17,7 +25,7 @@ public class MainActivity extends AppCompatActivity {
     private int[] numericButtons = {R.id.btn0, R.id.btn1, R.id.btn2, R.id.btn3, R.id.btn4, R.id.btn5, R.id.btn6, R.id.btn7, R.id.btn8, R.id.btn9};
     // IDs of all the operator buttons
     private int[] operatorButtons = {R.id.btnplus, R.id.btnMin, R.id.btnMul, R.id.btnDiv};
-    private ImageButton btnSpeak;
+    private ImageButton btnSpeak, back;
     private final int REQ_CODE_SPEECH_INPUT = 100;
     // TextView used to display the output
     private TextView txtScreen;
@@ -39,6 +47,7 @@ public class MainActivity extends AppCompatActivity {
         // Find the TextView
         this.txtScreen = (TextView) findViewById(R.id.textView);
         Ac = findViewById(R.id.btnAC);
+        back = findViewById(R.id.btnClear);
         // Find and set OnClickListener to numeric buttons
         setNumericOnClickListener();
         // Find and set OnClickListener to operator buttons, equal button and decimal point button
@@ -119,6 +128,19 @@ public class MainActivity extends AppCompatActivity {
                 lastDot = false;
             }
         });
+        // Clear button
+        findViewById(R.id.btnClear).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                String str = txtScreen.getText().toString();
+                if (str == null || str.length() > 0) {
+                    str = str.substring(0, str.length() - 1);
+
+                    txtScreen.setText(str);
+                }
+            }
+
+        });
 
         // Equal button
         findViewById(R.id.btnEqual).setOnClickListener(new View.OnClickListener() {
@@ -128,7 +150,39 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
+        //Speak button
+        findViewById(R.id.btnMod).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if (stateError) {
+                    txtScreen.setText("Try Again...");
+                    stateError = false;
+                } else {
+                    promptSpeechInput();
+                }
+                lastNumeric = true;
+            }
+        });
+
     }
+
+    private void promptSpeechInput() {
+
+        Intent intent = new Intent(RecognizerIntent.ACTION_RECOGNIZE_SPEECH);
+        intent.putExtra(RecognizerIntent.EXTRA_LANGUAGE_MODEL, RecognizerIntent.LANGUAGE_MODEL_FREE_FORM);
+        intent.putExtra(RecognizerIntent.EXTRA_LANGUAGE, Locale.getDefault());
+        intent.putExtra(RecognizerIntent.EXTRA_PROMPT,
+                getString(R.string.speech_prompt));
+        try {
+            startActivityForResult(intent, REQ_CODE_SPEECH_INPUT);
+        } catch (ActivityNotFoundException activityNotFoundException) {
+            Toast.makeText(getApplicationContext(), getString(R.string.speech_not_supported), Toast.LENGTH_SHORT).show();
+
+
+        }
+
+    }
+
 
     /**
      * Logic to calculate the solution.
@@ -152,6 +206,57 @@ public class MainActivity extends AppCompatActivity {
                 stateError = true;
                 lastNumeric = false;
             }
+        }
+
+    }
+    //receiving speech input
+
+
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+        switch (requestCode) {
+            case REQ_CODE_SPEECH_INPUT: {
+
+                if (resultCode == RESULT_OK && null != data) {
+
+                    ArrayList<String> result = data
+                            .getStringArrayListExtra(RecognizerIntent.EXTRA_RESULTS);
+                    String change = result.get(0);
+                    change = change.replace("x", "*");
+                    change = change.replace("X", "*");
+                    change = change.replace("add", "+");
+                    change = change.replace("sub", "-");
+                    change = change.replace("to", "2");
+                    change = change.replace("plus", "+");
+                    change = change.replace("minus", "-");
+                    change = change.replace("times", "*");
+                    change = change.replace("into", "*");
+                    change = change.replace("in2", "*");
+                    change = change.replace("multiply by", "*");
+                    change = change.replace("divide by", "/");
+                    change = change.replace("divide", "/");
+                    change = change.replace("equal", "=");
+                    change = change.replace("equals", "=");
+                    change = change.replace("cr", "0000000");
+                    change = change.replace("CR", "0000000");
+                    change = change.replace("crore", "0000000");
+
+                    if (change.contains("=")) {
+                        change = change.replace("=", "");
+                        txtScreen.setText(change);
+                        onEqual();
+
+                    } else {
+                        txtScreen.setText(change);
+
+                    }
+
+                }
+                break;
+
+            }
+
         }
     }
 }

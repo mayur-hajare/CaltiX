@@ -1,3 +1,7 @@
 <resources>
     <string name="app_name">CaltiX</string>
+    <string name="speech_prompt">Say Someting&#8230;</string>
+    <string name="speech_not_supported">Sorry your device doesn\'t supported speech input</string>
+    <string name="tap_on_mic">Tap on mic to speak</string>
+
 </resources>
