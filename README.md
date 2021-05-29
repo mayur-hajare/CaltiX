@@ -21,7 +21,7 @@ Version : 1.0.1
 
  <p align="center">
 <br>
-<img src="https://github.com/mayur-hajare/CaltiX/blob/87f8d8a682d94767d5b1c1188eca9a5da9e04bc5/app/src/main/res/drawable/calculator.gif" width="350px">
+<img src="https://github.com/mayur-hajare/CaltiX/blob/526d28c0b88a6b699f72c4b902f4045a9cd2d358/app/src/main/res/drawable/calg.gif" width="350px">
 
 <br><br>
 </p>
