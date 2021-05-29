@@ -17,7 +17,7 @@ Version : 1.0.1
 
 
 
-# lottiefiles Animations
+# Demo
 
  <p align="center">
 <br>
